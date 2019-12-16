@@ -33,8 +33,10 @@ jobs:
         yarn build
         yarn test
 
-    - name: Publish to NPM
+    - name: Release and Publish to NPM
       run: |
+        git config user.name yeojongki
+        git config user.email kk597@sina.com
         npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
         npm publish
       env:
