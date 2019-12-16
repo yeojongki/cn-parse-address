@@ -1,6 +1,9 @@
 name: Node CI
 
-on: [push]
+on:
+  push:
+  tags-ignore:
+      - .*
 
 jobs:
   lint:
@@ -38,6 +41,7 @@ jobs:
         git config user.name yeojongki
         git config user.email kk597@sina.com
         npm run release
+        git push --follow-tags origin HEAD
         npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
         npm publish
       env:
