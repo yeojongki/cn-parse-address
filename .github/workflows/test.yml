@@ -37,9 +37,3 @@ jobs:
       run: |
         yarn install
         yarn test
-    
-    - name: Push to master
-      run: |
-        git checkout master
-        git merge dev
-        git push
