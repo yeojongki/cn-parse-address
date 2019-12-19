@@ -1,7 +1,7 @@
 {
   "name": "cn-parse-address",
   "author": "yeojongki <kk597@sina.com>",
-  "version": "1.1.0",
+  "version": "1.0.5",
   "description": "cn address parse",
   "main": "dist/cn-parse-address.cjs.js",
   "module": "dist/cn-parse-address.esm.js",
