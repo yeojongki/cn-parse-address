@@ -40,7 +40,8 @@ jobs:
         git config user.name yeojongki
         git config user.email kk597@sina.com
         npm run release
-        git push --follow-tags origin master
+        git push --follow-tags origin HEAD
+
 
     - name: Publish to NPM
       run: |
