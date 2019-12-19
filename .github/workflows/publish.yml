@@ -40,6 +40,8 @@ jobs:
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
         yarn run release
+        git add .
+        git commit -m "chore: ci release"
         git push --follow-tags origin master
 
     - name: Publish to NPM
