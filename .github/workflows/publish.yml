@@ -39,7 +39,7 @@ jobs:
       run: |
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
-        git remote add origin https://github.com/yeojongki/cn-parse-address.git
+        echo git remote -v
         yarn run release
         git push --follow-tags origin master
 
