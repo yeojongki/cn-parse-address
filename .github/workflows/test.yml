@@ -37,8 +37,3 @@ jobs:
       run: |
         yarn install
         yarn test
-    
-    - name: Push to master
-      run: |
-        git pull origin master
-        git push -u origin master
