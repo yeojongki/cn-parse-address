@@ -40,7 +40,5 @@ jobs:
     
     - name: Push to master
       run: |
-        git fetch
-        git checkout master
-        git merge dev
-        git push
+        git pull origin master
+        git push -u origin master
