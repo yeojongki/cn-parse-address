@@ -37,8 +37,8 @@ jobs:
 
     - name: Github release
       run: |
-        git config user.name yeojongki
-        git config user.email kk597@sina.com
+        git config --global user.name yeojongki
+        git config --global user.email kk597@sina.com
         npm run release
         git push --follow-tags origin HEAD
         npm publish
