@@ -39,9 +39,8 @@ jobs:
       run: |
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
-        npm run release
-        git push --follow-tags origin HEAD
-        npm publish
+        yarn run release
+        git push --follow-tags origin master
 
     - name: Publish to NPM
       run: |
