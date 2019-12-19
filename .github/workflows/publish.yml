@@ -39,9 +39,8 @@ jobs:
       run: |
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
+        git remote add origin https://github.com/yeojongki/cn-parse-address.git
         yarn run release
-        git add .
-        git commit -m "chore: ci release"
         git push --follow-tags origin master
 
     - name: Publish to NPM
