@@ -39,7 +39,7 @@ jobs:
       run: |
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
-        echo git remote -v
+        git checkout master
         yarn run release
         git push --follow-tags origin master
 
