@@ -1,10 +1,11 @@
 name: Publish
 
 on:
-  
+  push:
     branches:
       - master
-
+    tags-ignore:
+      - v*
 jobs:
   publish:
 
@@ -37,11 +38,11 @@ jobs:
 
     - name: Github release
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_AUTH_TOKEN }}
+        GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_AUTH_TOKEN }}
       run: |
         git config --global user.name yeojongki
         git config --global user.email kk597@sina.com
-        git remote set-url origin https://yeojongki:"$GITHUB_TOKEN"@github.com/yeojongki/cn-parse-address.git
+        git remote set-url origin https://yeojongki:"$GITHUB_AUTH_TOKEN"@github.com/yeojongki/cn-parse-address.git
         git checkout master
         yarn run release
         git push --follow-tags origin master
