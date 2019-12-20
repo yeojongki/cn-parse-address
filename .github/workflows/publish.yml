@@ -1,10 +1,10 @@
 name: Publish
 
 on:
+  pull_request:
     branches:
       - master
-    tags-ignore:
-      - v*
+
 jobs:
   publish:
 
