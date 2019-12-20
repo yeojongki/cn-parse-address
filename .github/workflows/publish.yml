@@ -1,7 +1,7 @@
 name: Publish
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
@@ -30,20 +30,24 @@ jobs:
             ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
             ${{ runner.os }}-yarn-
 
-    - name: Install
+    - name: Install and build
       run: |
         yarn install
+        yarn build
 
     - name: Github release
-      run: |
-        git config user.name yeojongki
-        git config user.email kk597@sina.com
-        npm run release
-        git push --follow-tags origin HEAD
-
-    - name: Publish to NPM
-      run: |
-        npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-        npm publish
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_AUTH_TOKEN }}
+      run: |
+        git config --global user.name yeojongki
+        git config --global user.email kk597@sina.com
+        git remote set-url origin https://yeojongki:"$GITHUB_AUTH_TOKEN"@github.com/yeojongki/cn-parse-address.git
+        yarn run release
+        git push --follow-tags origin master
+
+    # - name: Publish to NPM
+    #   run: |
+    #     npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+    #     npm publish
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
